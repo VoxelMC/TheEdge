@@ -8,6 +8,10 @@ namespace TheEdge.Tiles
     {
         public override void SetDefaults()
         {
+            Main.tileSolid[Type] = true;
+            Main.tileMerge[mod.TileType("DarkGrassTile")][Type] = true;
+            Main.tileMerge[mod.TileType("DarkSoilTile")][Type] = true;
+            drop = mod.ItemType("BrushSoil");   //put your CustomBlock name
             Main.tileMerge[mod.TileType("AncientMossStoneTile")][Type] = true;
             Main.tileMerge[mod.TileType("FrozenDarkSoilTile")][Type] = true;
             Main.tileMerge[mod.TileType("PeatTile")][Type] = true;
@@ -71,12 +75,13 @@ namespace TheEdge.Tiles
             Main.tileMerge[mod.TileType("WeepungrSoilTile")][Type] = true;
             Main.tileMerge[mod.TileType("WillowedSoilTile")][Type] = true;
             Main.tileMerge[mod.TileType("YellowSoilTile")][Type] = true;
-            Main.tileSolid[Type] = true;
-            Main.tileMerge[mod.TileType("DarkGrassTile")][Type] = true;
-            Main.tileMerge[mod.TileType("DarkSoilTile")][Type] = true;
-            drop = mod.ItemType("TenebrousSoil");   //put your CustomBlock name
+            SetModTree(new DarkElmTree());
         }
-
+        public override int SaplingGrowthType(ref int style)
+        {
+            style = 0;
+            return mod.TileType("DarkElmSapling");
+        }
 
 
     }
