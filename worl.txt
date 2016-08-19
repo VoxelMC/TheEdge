@@ -1,0 +1,31 @@
+int SettleLiquidsAgainIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Settle Liquids Again"));
+            if (SettleLiquidsAgainIndex != -1)
+            {
+                tasks.Insert(SettleLiquidsAgainIndex + 1, new PassLegacy("Remove Water", delegate (GenerationProgress progress)
+                {
+                    progress.Message = "Remove Water";
+                    if (Main.tile[i2, num].active())
+                    {
+
+                        ushort type = Main.tile[i2, num].type;
+                        if (type == 0)
+                        {
+                            int num2 = num;
+                            while ((double)num2 > 60000000)
+                            {
+                                
+                                {
+                                    num2--;
+                                    mod.TileType("DarkSoilTile");
+                                }
+                               
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        num++;
+                    }
+                }));
