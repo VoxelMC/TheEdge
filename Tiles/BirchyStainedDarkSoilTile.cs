@@ -75,8 +75,13 @@ namespace TheEdge.Tiles
             Main.tileMerge[mod.TileType("WeepungrSoilTile")][Type] = true;
             Main.tileMerge[mod.TileType("WillowedSoilTile")][Type] = true;
             Main.tileMerge[mod.TileType("YellowSoilTile")][Type] = true;
+            SetModTree(new BirchWoodTree());
         }
-
+        public override int SaplingGrowthType(ref int style)
+        {
+            style = 0;
+            return mod.TileType("BirchWoodSapling");
+        }
 
 
     }
