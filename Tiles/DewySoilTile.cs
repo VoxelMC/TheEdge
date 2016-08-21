@@ -75,8 +75,13 @@ namespace TheEdge.Tiles
             Main.tileMerge[mod.TileType("WillowedSoilTile")][Type] = true;
             Main.tileMerge[mod.TileType("YellowSoilTile")][Type] = true;
             drop = mod.ItemType("DewySoil");   //put your CustomBlock name
+            SetModTree(new DewWillowTree());
         }
-
+        public override int SaplingGrowthType(ref int style)
+        {
+            style = 0;
+            return mod.TileType("DewWillowSapling");
+        }
 
 
     }
